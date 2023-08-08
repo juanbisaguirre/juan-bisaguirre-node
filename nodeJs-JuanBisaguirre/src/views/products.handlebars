@@ -1,0 +1,38 @@
+<h1>Bienvenido: {{user.first_name}} {{user.last_name}}</h1>
+<p>Edad: {{user.age}} años</p>
+<p>Correo: {{user.email}}</p>
+<p>Rol: {{user.role}}</p>
+<p>Contraseña: Te la creiste 😂😂😂</p>
+
+<h2>Productos</h2>
+<ul>
+{{#each products}}
+  <li>
+    <h3>Title: {{this.title}}</h3>
+    <p>Description: {{this.description}}</p>
+    <p>Price: {{this.price}}</p>
+    <p>Category: {{this.category}}</p>
+   {{!--  {{#if ../cartId}}
+    <form method="POST" action="/api/carts/{{../cartId}}/products/{{this._id}}">
+      <input type="hidden" name="product_id" value="{{_id}}">
+      <button type="submit">Add to cart</button>
+    </form>
+    {{/if}} --}}
+  </li>
+{{/each}}
+</ul>
+
+<div>
+  {{#if prevLink}}
+  <a href="{{prevLink}}">Pagina anterior</a>
+  {{/if}}
+  {{#if nextLink}}
+  <a href="{{nextLink}}">Pagina siguiente</a>
+  {{/if}}
+</div>
+
+<form id="cerrarSesion" action="/logout" method="post">
+  <button type="submit">Cerrar sesión</button>
+</form>
+
+<script src="/js/products.js"></script>
